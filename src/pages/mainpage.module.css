@@ -1,0 +1,65 @@
+body{
+    background-color: #222;
+}
+button{
+    cursor: pointer;
+}
+.into_text{
+    color: blue;
+    text-align: center;
+    font-weight: 900;
+}
+.logo{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    border-radius: 5px;
+}
+
+/* section_second */
+.second_section{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    height: 500px;
+}
+.second_section div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%;
+    max-height: 300px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(blue,rgb(52, 206, 193));
+}
+.second_section>div>div{
+    margin: 20px auto 0;
+    border: 2px solid blue;
+    border-radius: 10px;
+    line-height: 20px;
+    background-color: #222;
+    color: #fff;
+    cursor: pointer;
+}
+/* third_section/section_about */
+.section_about{
+    width: 90%;
+    color: #fff;
+    margin: 0 auto;
+}
+/* fours_section/register */
+.section_registration{
+    text-align: center;
+    margin-top: 30px;
+}
+.register{
+    width: 100px;
+    border-radius: 100px;
+    border: 2px solid blue;
+    cursor: pointer;
+}
