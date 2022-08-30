@@ -23,6 +23,7 @@ function App() {
         <Route path="/groups" element={<Grouppage/>}/>
         <Route path="/groups/:id" element={<Grouppage/>}/>
         <Route path="/students" element={<Studentspage/>}/>
+        <Route path="/students/group/:id" element={<Studentspage/>}/>
         <Route path='/student/:id' element={<OneStudentpage/>}/>
       </Routes>
 
