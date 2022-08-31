@@ -31,7 +31,6 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.dno}>
-        
         <p>© Intocode 2022</p>
       </div>
     </footer>
