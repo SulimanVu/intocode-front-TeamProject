@@ -1,0 +1,28 @@
+.form {
+    width: 300px;
+    margin: auto;
+    background-color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.input_text{
+    width: 70%;
+    margin: 10px auto;
+    border-radius: 4px;
+    border: 1.8px solid blue;
+    outline: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    line-height: 30px;
+}
+
+.form button{
+
+    border: 1.8px solid blue;
+    background-color: transparent;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
