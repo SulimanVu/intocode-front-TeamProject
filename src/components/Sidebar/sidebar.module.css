@@ -15,6 +15,7 @@ a {
 
 
 .burger_btn {
+    
     margin-top: 20px;
     margin-right: 30px;
     width: 35px;
@@ -43,7 +44,6 @@ a {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    top: 50px;
     right: 0;
     transform: translateX(110%);
     transition: 2s;
@@ -53,6 +53,7 @@ a {
 .menu_active {
     transform: translateX(0);
    transition: .5s;
+   
 }
 
 .blur {
