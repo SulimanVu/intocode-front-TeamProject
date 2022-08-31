@@ -12,8 +12,6 @@ import { useSelector } from "react-redux";
 
 function App() {
 
-  
-
   return (
     <>
       <Sidebar/>
