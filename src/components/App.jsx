@@ -5,8 +5,10 @@ import Mainpage from '../pages/MainPage/Mainpage'
 import Adminpage from '../pages/Admin/Adminpage'
 import Studentspage from '../pages/Students/Studentspage'
 import OneStudentpage from '../pages/OneStudent/OneStudentpage'
+import Aboutpage from '../pages/About/Aboutpage'
 
 import { useSelector } from "react-redux";
+
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Mainpage/>}/>
         <Route path="/admin" element={<Adminpage/>}/>
+        <Route path='/about' element={<Aboutpage/>}/>
         <Route path="/students" element={<Studentspage/>}/>
         <Route path="/students/group/:id" element={<Studentspage/>}/>
         <Route path='/student/:id' element={<OneStudentpage/>}/>
