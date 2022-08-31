@@ -46,19 +46,19 @@ a {
     top: 50px;
     right: 0;
     transform: translateX(110%);
-    transition: all .3s;
+    transition: 2s;
 
 }
 
 .menu_active {
     transform: translateX(0);
-   
+   transition: .5s;
 }
 
 .blur {
     width: 100vw;
     height: 200vh;
-    backdrop-filter: blur(2px);
+    /* backdrop-filter: blur(2px); */
     position: absolute;
     
 }
@@ -73,11 +73,13 @@ a {
     height: 100%;
     background-color: #000;
     border-radius: 10px;
-    transition: all .4s;
+    transition: all .2s;
 }
 
 .menu_title {
     padding-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
     text-align: center;
     color: #fff;
     border-bottom: 1px double #fff;
