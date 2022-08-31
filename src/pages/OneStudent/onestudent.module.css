@@ -1,0 +1,101 @@
+body{
+    background-color: #222;
+}
+.main{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+.image{
+    position: relative;
+    margin: 50px 0 0;
+    height: 600px;
+}
+.circle{
+    overflow: hidden;
+    text-align: center;
+    object-fit: cover;
+    position: relative;
+    top: 30px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    border: 50px solid blue;
+    box-shadow: 0 0 70px rgb(0, 89, 255);
+    border-radius: 50%;
+    z-index: -2;
+}
+.circle img{
+    position: absolute;
+    max-width: 100%;
+    z-index: -3;
+}
+.circle2{
+    position: relative;
+    align-self: center;
+    width: 420px;
+    height: 420px;
+    border: none;
+    opacity: 0.2;
+    z-index: 5;
+}
+.circle_info{
+    position: absolute;
+    text-align: center;
+    padding-top: 10px;
+    right: 120px;
+    top: 2px;
+    width: 55px;
+    height: 55px;
+    background-color: #222;
+    border-radius: 100%;
+    color: blue;
+    font-size: 25px;
+    font-weight: 700;
+}
+.circle_info1{
+    position: absolute;
+    top: 40px;
+    right: 100px;
+}
+.circle_info2{
+    position: absolute;
+    top: 60px;
+    right: 400px;
+}
+.circle_info3{
+    position: absolute;
+    top: 220px;
+    right: 490px;
+}
+.circle_info4{
+    position: absolute;
+    top: 380px;
+    right: 460px;
+}
+/* text_block */
+.text{
+    width: 40%;
+    margin: auto;
+    color: #fff;
+}
+.text h1{
+    font-size: 90px;
+}
+.text h2{
+    padding-left: 10px;
+    font-size: 80px;
+}
+.text h5{
+    font-size: 30px;
+    color: blue;
+}
+.text h6{
+    margin-top: 4%;
+    font-size: 30px;
+}
+.text p {
+    margin-top: 10px;
+}
