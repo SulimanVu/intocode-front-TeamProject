@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./mainpage.module.css";
 import { motion } from "framer-motion";
-import logo from "../images/intocode_3.png";
+import logo from "../../images/intocode_3.png";
 
 const Mainpage = () => {
   const [login, setLogin] = useState('')
