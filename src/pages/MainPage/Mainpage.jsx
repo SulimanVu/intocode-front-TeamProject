@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import logo from "../../images/intocode_3.png";
 
 const Mainpage = () => {
+  
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
   const [form, setForm] = useState(false)
