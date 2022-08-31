@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   notes: [],
-  loader: false
+  loader: false,
 };
 
 export const fetchNote = createAsyncThunk(
-  "Note/fetch",
+  "note/fetch",
   async (student, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:3000/notes/${student}`);
@@ -20,7 +20,7 @@ export const fetchNote = createAsyncThunk(
 
 export const addNote = createAsyncThunk(
   "note/add",
-  async ({student, notes}, thunkAPI) => {
+  async ({ student, notes }, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:3000/note`, {
         method: "POST",
@@ -28,7 +28,7 @@ export const addNote = createAsyncThunk(
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ student, notes}),
+        body: JSON.stringify({ student, notes }),
       });
       const data = await res.json();
       return data;
@@ -42,61 +42,65 @@ export const removeNote = createAsyncThunk(
   "note/remove",
   async (student, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:3000/note/${id}`, {
+      const res = await fetch(`http://localhost:3000/note/${student}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
           "Content-Type": "application/json",
         },
-      })
+      });
       const data = await res.json();
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       }
-      return id
+      return data;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error);       
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
 
-const applicationSlice = createSlice({
-    name:'application',
-    initialState,
-    reducers:{},
-    extraReducers: (builder) => {
-        builder
-        .addCase(fetchNote.fulfilled, (state, action) => {
-            state.error = null;
-            state.token = action.payload.token;
-        })
-        .addCase(fetchNote.rejected, (state, action) => {
-            state.error = action.payload;
-        })
-        .addCase(fetchNote.pending, (state, action) => {
-            state.error = action.payload;
-        })
-        .addCase(addNote.fulfilled, (state, action) => {
-            state.error = null;
-            state.token = action.payload.token;
-        })
-        .addCase(addNote.rejected, (state, action) => {
-            state.error = action.payload;
-        })
-        .addCase(addNote.pending, (state, action) => {
-            state.error = action.payload;
-        })
-        .addCase(removeNote.fulfilled, (state, action) => {
-            state.error = null;
-            state.token = action.payload.token;
-        })
-        .addCase(removeNote.rejected, (state, action) => {
-            state.error = action.payload;
-        })
-        .addCase(removeNote.pending, (state, action) => {
-            state.error = action.payload;
-        })
-    }
-})
+const noteSlice = createSlice({
+  name: "application",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+    ////////////////Добавление////////////////////
+      .addCase(fetchNote.fulfilled, (state, action) => {
+        state.loader = false;
+        state.notes = action.payload;
+      })
+      .addCase(fetchNote.rejected, (state, action) => {
+        state.notes = action.payload;
+        state.loader = false;
+      })
+      .addCase(fetchNote.pending, (state, action) => {
+        state.loader = true;
+      })
+      /////////////Добавление///////////////////
+      .addCase(addNote.fulfilled, (state, action) => {
+        state.loader = true;
+        state.notes = state.notes.push(action.payload);
+      })
+      .addCase(addNote.rejected, (state, action) => {
+        state.loader = false;
+      })
+      .addCase(addNote.pending, (state, action) => {
+        state.loader = true;
+      })
+      ////////////Удаление/////////////////////
+      .addCase(removeNote.fulfilled, (state, action) => {
+        state.loader = false;
+        state.notes = state.notes.filter((item) => item._id !== action.payload);
+      })
+      .addCase(removeNote.rejected, (state, action) => {
+        state.loader = false;
+      })
+      .addCase(removeNote.pending, (state, action) => {
+        state.loader = true;
+      });
+  },
+});
 
-export default applicationSlice.reducer
+export default noteSlice.reducer;
