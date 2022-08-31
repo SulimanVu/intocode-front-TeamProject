@@ -25,10 +25,10 @@
     background-color: transparent;
     border-radius: 5px;
     margin-bottom: 10px;
-    transition: 1.2s;
+    transition: 1s;
 }
 
-form button:hover{
-    background-color: #fff;
-    color: blue;
+.form button:hover{
+    background-color: blue;
+    color: #fff;
 }
