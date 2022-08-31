@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './admin.module.css'
-import addStudent from '../../features/studentSlice'
+import { addStudent } from '../../features/studentSlice'
+
 
 const Adminpage = () => {
     
@@ -29,7 +30,8 @@ const Adminpage = () => {
         setGroup(e.target.value)
     }
     const handleAddStudent = () => {
-        dispatch(addStudent({ name, surname, image, group, email}), [dispatch])
+        console.log({ name, surname, image, group, email})
+        dispatch(addStudent({ name, surname, image, group, email}))
     }
 
     return (
