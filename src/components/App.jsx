@@ -3,7 +3,6 @@ import Sidebar from './Sidebar/Sidebar'
 import Footer from './Footer/Footer'
 import Mainpage from '../pages/MainPage/Mainpage'
 import Adminpage from '../pages/Admin/Adminpage'
-import Grouppage from '../pages/Group/Grouppage'
 import Studentspage from '../pages/Students/Studentspage'
 import OneStudentpage from '../pages/OneStudent/OneStudentpage'
 
