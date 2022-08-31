@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from "./mainpage.module.css";
 import { motion } from "framer-motion";
 import logo from "../../images/intocode_3.png";
+import { useDispatch, useSelector } from "react-redux";
+import { SignIn } from "../../features/applicationSlice";
 
 const Mainpage = () => {
   
@@ -9,14 +11,22 @@ const Mainpage = () => {
   const [password, setPassword] = useState('')
   const [form, setForm] = useState(false)
 
+  const token = useSelector(state => state.application.token)
+  console.log(token)
+
+  const dispatch = useDispatch()
+
   const handleLoginChange = (e) =>{
     setLogin(e.target.value)
   }
   const handlePasswordChange = (e) =>{
     setPassword(e.target.value)
   }
-  const handleRegister = () =>{
-    
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(SignIn({login, password}), [dispatch])
+    setLogin("");
+    setPassword("");
   }
   const handleForm = () =>{
     setForm(!form)
@@ -130,7 +140,7 @@ const Mainpage = () => {
           className={styles.register}
           src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png"
         />
-  {form && <motion.form onSubmit={handleRegister}
+  {form && <motion.form onSubmit={e => handleLogin(e)}
               transition={{duration:1}}
               initial={{opacity:0,  y:50}}
               animate={{opacity:1, y:0}}>
@@ -144,7 +154,7 @@ const Mainpage = () => {
           />
           <input
           className={styles.input_text}
-            type="text"
+            type="password"
             value={password}
             onChange={handlePasswordChange}
             placeholder="password"
@@ -173,3 +183,10 @@ const Mainpage = () => {
 };
 
 export default Mainpage;
+
+// TODO Если есть токен то добавить кнопку log out и очистить localStorage
+
+// const handleLogOut = () => {
+//   localStorage.clear();
+//   window.location.reload();
+// }
