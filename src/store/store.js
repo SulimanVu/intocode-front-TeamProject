@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-// импортируюте слайсы 
+import application from '../features/applicationSlice'
 
 export const store = configureStore({
-    refucer: {/* здесь будет название импортированного слайса */}
+    reducer: application,
 })
