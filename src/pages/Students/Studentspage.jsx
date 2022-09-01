@@ -6,11 +6,19 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { fetchGroups } from "../../features/groupSlice";
 
-const Studentspage = ({ item }) => {
+const Studentspage = () => {
   const dispatch = useDispatch();
   const students = useSelector((state) => state.student.students);
-  //const groups = useSelector((state) => state.group.groups)
+  const allGroups = useSelector((state) => state.group.groups)
+
+  useEffect(() => {
+    dispatch(fetchGroups());
+  }, [dispatch]);
+
+   
+
   const { id } = useParams();
   const [search, setSearch] = useState("");
 
@@ -37,15 +45,20 @@ const Studentspage = ({ item }) => {
 
   return (
     <div className={styles.cardsBody}>
+      <div className={styles.mainDrop}>
         <div className={styles.dropMenu}>
-            <label for="touch"><span className={styles.groupsBtn}>Все группы</span></label>
-            <input type="checkbox" className={styles.touch}/>
-            <ul className={styles.menuLists}>
-                <li className={styles.menuItems}>Группа 1</li>
-                <li className={styles.menuItems}>Группа 1</li>
-                <li className={styles.menuItems}>Группа 1</li>
-            </ul>
+          <a href="#" className={styles.dropBtn}>
+            Все группы
+          </a>
+          <div className={styles.dropContent}>
+            {allGroups.map((item) => {
+                return (
+                    <Link to={`/students/group/${item._id}`}>{item.nameGroup}</Link>
+                )
+            })}
+          </div>
         </div>
+      </div>
       <div className={styles.search}>
         <div className={styles.inputContain}>
           <input
