@@ -15,7 +15,9 @@ a {
 
 
 .burger_btn {
-    
+    position: absolute;
+    top: 0;
+    right: 0;
     margin-top: 20px;
     margin-right: 30px;
     /* width: 35px;
@@ -52,8 +54,10 @@ a {
 }
 
 .menu_active {
+    position: absolute;
+    top: 0;
     transform: translateX(0);
-   transition: .5s;
+    transition: .5s;
    
 }
 
