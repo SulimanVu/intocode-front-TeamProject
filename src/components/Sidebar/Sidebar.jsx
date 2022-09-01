@@ -12,7 +12,7 @@ const Sidebar = () => {
   }
     return (
         <div className={style.burger_btn_container}>
-            <img src={burger} alt="burger-btn"  className={style.burger_btn}  onClick={() => handleMenu()}/>
+            <div className={style.burger_btn}  onClick={() => handleMenu()}> |||</div>
             
             <Menu  active={menuActive} setActive={setMenuActive} />
         
