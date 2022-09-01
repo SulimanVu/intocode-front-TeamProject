@@ -108,8 +108,15 @@ a {
     letter-spacing: 3px;
 }
 
+.menu_list {
+    display: flex;
+    flex-direction: column;
+}
+
 .menu_item {
    margin-top: 10px;
+   
+
    /* background-color: #fff;
   padding: 0 110px; */
 }
