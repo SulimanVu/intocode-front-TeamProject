@@ -18,23 +18,24 @@ a {
     
     margin-top: 20px;
     margin-right: 30px;
-    width: 35px;
-    height: 35px;
+    /* width: 35px;
+    height: 35px; */
+    font-size: 2.5em;
+    font-weight: 700;
     float: right;
+    color: #2046c4;
     cursor: pointer;
+    transition: all 0.5s;
+    -webkit-transition: all 0.25s;
 }
 
-/* .burger_btn_container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-} */
+.burger_btn:hover {
+    transform: rotate(90deg);
+    color: #fff;
+}
+
+
+  
 
 
 /* ======================================================================================MENU======================================================================================== */
@@ -72,25 +73,67 @@ a {
     margin-right: -10px;
     width: 20%;
     height: 100%;
-    background-color: #000;
-    border-radius: 10px;
+    background-color: rgb(50, 50, 204);
+    border-radius: 30px;
     transition: all .2s;
 }
 
+
+.intocode_img {
+    width: 25px;
+    height: 25px;
+}
+
+.img_title_block {
+    display:flex;
+    flex-flow:row nowrap;
+    align-items:center;
+}
+
 .menu_title {
-    padding-top: 10px;
-    font-size: 25px;
+    padding-top: 30px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
     color: #fff;
     border-bottom: 1px double #fff;
 }
 
-.menu_item {
-    margin-top: 5px;
-    text-align: center;
+.menu_title:hover {
+    font-size: 35px;
+    letter-spacing: 3px;
 }
 
+.menu_item {
+   margin-top: 10px;
+   /* background-color: #fff;
+  padding: 0 110px; */
+}
+
+
+
+.menu_link:hover {
+    border-bottom: 2px double #fff;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 1.5em
+}
 .menu_link {
+    color: #42AAFF;
+    font-size: 20px;
+    font-weight: bold;
+    
+    
+}
+.exit {
+    margin-top: 8px;
+    margin-right: 230px;
+    font-size: 2em;
+    font-weight: 700;
+    color: #42AAFF;
+    cursor: pointer;
+}
+
+.exit:hover {
     color: #fff;
 }
