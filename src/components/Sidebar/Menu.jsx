@@ -21,7 +21,7 @@ const Menu = ({active, setActive}) => {
                    
                     <Link to='/' className={style.menu_title}> INTOCODE</Link>
                     <ul className={style.menu_list}>
-                        <li className={style.menu_item}> <Link to='/students' className={style.menu_link}>Student</Link> </li>
+                        <li className={style.menu_item}> <Link to='/students' className={style.menu_link}>Students</Link> </li>
                         <li className={style.menu_item}> <Link to="/about" className={style.menu_link}>About Us</Link> </li>
                        {token ? <li className={style.menu_item}> <Link to="/admin" className={style.menu_link}>Admin</Link> </li> : null} 
                        {token ? <li className={style.menu_item}> <Link to="/" onClick={handleLogOut} className={style.menu_link}>Log Out</Link> </li> : null}

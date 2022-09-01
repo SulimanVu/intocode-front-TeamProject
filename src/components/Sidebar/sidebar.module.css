@@ -3,25 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-
 ul {
     list-style: none;
 }
-
 a {
     text-decoration: none;
 }
-
-
 .burger_btn {
     position: absolute;
     top: 0;
     right: 0;
     margin-top: 20px;
     margin-right: 30px;
-    /* width: 35px;
-    height: 35px; */
     font-size: 2.5em;
     font-weight: 700;
     float: right;
@@ -30,18 +23,12 @@ a {
     transition: all 0.5s;
     -webkit-transition: all 0.25s;
 }
-
 .burger_btn:hover {
     transform: rotate(90deg);
     color: #fff;
-}
-
-
-  
-
+}  
 
 /* ======================================================================================MENU======================================================================================== */
-
 
 .menu {
     position: fixed;
@@ -50,25 +37,19 @@ a {
     right: 0;
     transform: translateX(110%);
     transition: 2s;
-
 }
-
 .menu_active {
     position: absolute;
     top: 0;
     transform: translateX(0);
     transition: .5s;
-   
+    z-index: 5;
 }
-
 .blur {
     width: 100vw;
     height: 200vh;
-    /* backdrop-filter: blur(2px); */
     position: absolute;
-    
 }
-
 .menu_content {
     display: flex;
     flex-direction: column;
@@ -82,12 +63,10 @@ a {
     transition: all .2s;
 }
 
-
 .intocode_img {
     width: 25px;
     height: 25px;
 }
-
 .img_title_block {
     display:flex;
     flex-flow:row nowrap;
@@ -101,41 +80,35 @@ a {
     text-align: center;
     color: #fff;
     border-bottom: 1px double #fff;
+    transition: 0.5s;
 }
-
 .menu_title:hover {
     font-size: 35px;
     letter-spacing: 3px;
+    border-bottom: 3px double #fff;
 }
-
 .menu_list {
     display: flex;
     flex-direction: column;
 }
-
 .menu_item {
    margin-top: 10px;
-   
-
-   /* background-color: #fff;
-  padding: 0 110px; */
 }
-
-
 
 .menu_link:hover {
     border-bottom: 2px double #fff;
     color: #fff;
-    letter-spacing: 2px;
+    text-align: center;
     font-size: 1.5em
 }
 .menu_link {
+    text-align: center;
     color: #42AAFF;
     font-size: 20px;
     font-weight: bold;
-    
-    
+    transition: 0.3s;
 }
+
 .exit {
     margin-top: 8px;
     margin-right: 230px;
@@ -144,7 +117,6 @@ a {
     color: #42AAFF;
     cursor: pointer;
 }
-
 .exit:hover {
     color: #fff;
 }

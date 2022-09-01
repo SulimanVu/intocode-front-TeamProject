@@ -85,17 +85,13 @@ form{
     box-sizing: border-box;
     line-height: 30px;
 }
-.check_text{
-    font-size: 12px;
-    display: flex;
-    margin: auto;
-    text-align: center;
-    align-items: center;
-    align-content: center;
+form h1{
+    font-size: 30px;
+    padding: 20px;
 }
 form button{
     width: 80%;
-    margin:20px auto;
+    margin:30px auto;
     border: 1px solid blue;
     border-radius: 5px;
     text-align: center;
