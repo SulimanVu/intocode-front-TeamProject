@@ -4,19 +4,22 @@
   align-items: center;
 }
 .maincards {
-  margin-top: 20px;
+    margin-top: 30px;
+    width: 90%;
     font-family: tahoma;
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
 }
 .onecard {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 30px 0 40px;
-  margin-bottom: 30px;
   background-color: white;
   text-align: center;
   overflow: hidden;

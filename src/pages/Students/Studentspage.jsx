@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "./card.module.css";
+import styles from "./students.module.css";
 import { fetchStudents } from "../../features/studentSlice";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -44,7 +44,7 @@ const Studentspage = () => {
     <div className={styles.cardsBody}>
       <div className={styles.mainDrop}>
         <div className={styles.dropMenu}>
-          <a href="#" className={styles.dropBtn}>
+          <a href="/" className={styles.dropBtn}>
             Все группы
           </a>
           <div className={styles.dropContent}>

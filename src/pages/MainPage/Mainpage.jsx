@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import styles from "./mainpage.module.css";
 import { motion } from "framer-motion";
 import logo from "../../images/intocode_3.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SignIn } from "../../features/applicationSlice";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Mainpage = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [form, setForm] = useState(false);
-  const token = useSelector((state) => state.application.token);
+ 
 
   const dispatch = useDispatch();
 
@@ -132,7 +132,7 @@ const Mainpage = () => {
         transition={{ duration: 2 }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-      >
+      > 
         <img
           onClick={handleForm}
           alt="#"
