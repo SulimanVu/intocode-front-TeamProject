@@ -1,3 +1,7 @@
+.body{
+  color: #fff;
+  background-color: #222;
+}
 .generalAbout {
   display: flex;
   justify-content: space-between;

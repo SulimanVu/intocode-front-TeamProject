@@ -32,6 +32,7 @@ const Footer = () => {
       </div>
       <div className={styles.dno}>
         <p>© Intocode 2022</p>
+        <p>made by: Suliman, Salambek, Said-Akhmad, Surkho and Ayub</p>
       </div>
     </footer>
   );
