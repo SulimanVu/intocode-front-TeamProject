@@ -6,7 +6,6 @@ import Adminpage from '../pages/Admin/Adminpage'
 import Studentspage from '../pages/Students/Studentspage'
 import OneStudentpage from '../pages/OneStudent/OneStudentpage'
 import Aboutpage from '../pages/About/Aboutpage'
-
 import { useSelector } from "react-redux";
 
 
@@ -15,7 +14,7 @@ function App() {
   return (
     <>
       <Sidebar/>
-      
+    
       <Routes>
         <Route path="/" element={<Mainpage/>}/>
         <Route path="/admin" element={<Adminpage/>}/>

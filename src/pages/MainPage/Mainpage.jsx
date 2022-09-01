@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import logo from "../../images/intocode_3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { SignIn } from "../../features/applicationSlice";
+import { Link, Navigate } from "react-router-dom";
 
 const Mainpage = () => {
   
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
   const [form, setForm] = useState(false)
-
-  const token = useSelector(state => state.application.token)
+  const token = useSelector(state => state.application.token);
 
   const dispatch = useDispatch()
 
@@ -158,9 +158,10 @@ const Mainpage = () => {
             onChange={handlePasswordChange}
             placeholder="password"
           />
+          
           <span className={styles.check_text}><input type="checkbox" className={styles.checkbox} />
           Подтвердите согласие на обработку</span>
-          <button type="submit">LOGIN</button>
+          <Link to={'/admin'}><button type="submit">LOGIN</button></Link>
           <div>
             <span>Or login with</span>
             <div className={styles.messenger}>
