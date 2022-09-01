@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./onestudent.module.css";
 import { motion } from "framer-motion";
 import image from "../../images/Suliman.png";
@@ -103,7 +103,7 @@ const OneStudentpage = () => {
             <div className={styles.image}>
               <div className={styles.circle}>
                 <div className={styles.circle2}></div>
-                <img src={image} />
+                <img src={image} alt='../../images/Suliman.png'/>
               </div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info1}`}
@@ -111,7 +111,7 @@ const OneStudentpage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                UI
+                REACT
               </motion.div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info2}`}
@@ -119,7 +119,7 @@ const OneStudentpage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                C#
+                HTML
               </motion.div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info3}`}
@@ -127,7 +127,7 @@ const OneStudentpage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                LI
+                CSS
               </motion.div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info4}`}
@@ -135,7 +135,7 @@ const OneStudentpage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                SU
+                JS
               </motion.div>
             </div>
           </section>

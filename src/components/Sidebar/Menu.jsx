@@ -1,8 +1,8 @@
 import React from 'react';
 import style from './sidebar.module.css'
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import intocode from "../../images/intocode_1.png"
+
 
 
 
