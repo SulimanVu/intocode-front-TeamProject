@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styles from "./card.module.css";
-// import img from "../../images/intocode_3.png";
 import { fetchStudents } from "../../features/studentSlice";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,15 +8,17 @@ import { useState } from "react";
 import { fetchGroups } from "../../features/groupSlice";
 
 const Studentspage = () => {
+
   const dispatch = useDispatch();
+
   const students = useSelector((state) => state.student.students);
   const allGroups = useSelector((state) => state.group.groups)
 
   useEffect(() => {
     dispatch(fetchGroups());
+    dispatch(fetchStudents());
   }, [dispatch]);
 
-   
 
   const { id } = useParams();
   const [search, setSearch] = useState("");
@@ -30,18 +31,14 @@ const Studentspage = () => {
     if (!id) {
       return true;
     }
-    return id === item.group;
+    return id === item.group._id;
   });
-  console.log(filterStudents);
+
 
   const filtered = filterStudents.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });
 
-  console.log(filtered);
-  useEffect(() => {
-    dispatch(fetchStudents());
-  }, [dispatch]);
 
   return (
     <div className={styles.cardsBody}>
@@ -53,7 +50,7 @@ const Studentspage = () => {
           <div className={styles.dropContent}>
             {allGroups.map((item) => {
                 return (
-                    <Link to={`/students/group/${item._id}`}>{item.nameGroup}</Link>
+                    <Link key={item._id} to={`/students/group/${item._id}`}>{item.nameGroup}</Link>
                 )
             })}
           </div>
@@ -66,13 +63,11 @@ const Studentspage = () => {
             type="text"
             id="fname"
             name="fname"
-            autocomplete="off"
             value={search}
             aria-labelledby={styles.placeholderFName}
           />
           <label
             className={styles.placeholderText}
-            for="fname"
             id="placeholder-fname"
           >
             <div className={styles.text}>Имя студента</div>
@@ -82,9 +77,9 @@ const Studentspage = () => {
       <div className={styles.maincards}>
         {filtered.map((item) => {
           return (
-            <div className={styles.onecard}>
+            <div  key={item._id} className={styles.onecard}>
               <div className={styles.studentImage}>
-                <img alt="#" src={`http://localhost:3000/${item.image}`} />
+                <img alt="#" src={`http://localhost:3000/images/${item.image}`} />
               </div>
               <div className={styles.flex}>
                 <div className={styles.studentName}>
@@ -92,8 +87,8 @@ const Studentspage = () => {
                   <h2>{item.surname}</h2>
                 </div>
                 <div className={styles.studentInfo}>
-                  <h4>{item.group}</h4>
-                  <h4>{item.email}</h4>
+                  <h2>{item.group.nameGroup}</h2>
+                  <h2>{item.email}</h2>
                 </div>
               </div>
               <div className={styles.studentpage}>
