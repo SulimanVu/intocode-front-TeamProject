@@ -13,7 +13,6 @@ const Menu = ({active, setActive}) => {
         localStorage.clear();
         window.location.reload();
       }
-      
 
     return (
         <div className={active ? style.menu_active : style.menu}  onClick={() => setActive(false)}>
