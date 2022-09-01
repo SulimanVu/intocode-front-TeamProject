@@ -6,6 +6,9 @@ body{
     display: flex;
     justify-content: space-between;
 }
+.main_block{
+    height: 100vh;
+}
 .image{
     position: relative;
     margin: 50px 0 0;
@@ -103,6 +106,11 @@ body{
 .note{
     margin-top: 40px;
 }
+.note p{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 .note div{
     background: #fff;
     border-radius: 5px;
@@ -110,5 +118,5 @@ body{
     word-break: break-all;
     padding: 10px 5px 10px 15px;
     color: rgb(191, 51, 226);
-    margin-top: 5px;
+    margin-top: 10px;
 }

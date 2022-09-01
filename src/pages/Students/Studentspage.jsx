@@ -74,6 +74,7 @@ const Studentspage = () => {
           </label>
         </div>
       </div>
+      
       <div className={styles.maincards}>
         {filtered.map((item) => {
           return (
