@@ -12,7 +12,6 @@ const Mainpage = () => {
   const [form, setForm] = useState(false)
 
   const token = useSelector(state => state.application.token)
-  console.log(token)
 
   const dispatch = useDispatch()
 
