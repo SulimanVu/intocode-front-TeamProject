@@ -4,25 +4,27 @@
   align-items: center;
 }
 .maincards {
+  margin-top: 20px;
     font-family: tahoma;
-    height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 .onecard {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
   padding: 30px 0 40px;
   margin-bottom: 30px;
-  background-color: #f7f5ec;
+  background-color: white;
   text-align: center;
   overflow: hidden;
   position: relative;
-  width: 500px;
-  border-radius: 10px;
+  width: 400px;
+  border-radius: 10%;
   border: solid rgb(18, 50, 147);
-
-
+  height: 220px;
 }
 .onecard:hover .studentImage::before {
     height: 100%;
@@ -38,22 +40,8 @@ font-size: 25px;
     z-index: 1;
     position: relative;
 }
-.onecard .studentImage::before {
-    content: "";
-  width: 100%;
-  height: 0;
-  border-radius: 50%;
-  background-color: rgb(18, 50, 147);
-  position: absolute;
-  bottom: 135%;
-  right: 0;
-  left: 0;
-  opacity: 0.9;
-  transform: scale(3);
-  transition: all 0.3s linear 0s;
-}
 .onecard .studentImage::after {
-    content: "";
+  content: "";
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -82,5 +70,132 @@ font-size: 25px;
   display: flex;
   align-items: center;
   width: 560px;
-  
 }
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+.onecard .studentpage {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(18, 50, 147);
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+.onecard:hover .studentpage {
+  bottom: 0;
+}
+.onecard:hover .studentpage li {
+  display: inline-block;
+}
+.onecard:hover .studentpage a {
+  display: block;
+  padding: 5px;
+  font-size: 18px;
+  color: white;
+  transition: all 0.2s ease 0s;
+  text-decoration: none;
+  font-family:'Courier New', Courier, monospace;
+  font-weight: 600;
+}
+.onecard:hover .studentpage li a:hover {
+  color: #1369ce;
+  background-color: #f7f5ec;
+}
+.inputContain{
+  position: relative;
+}
+input{
+  margin-top: 30px;
+  height: 3rem;
+  width: 40rem;
+  border: 3px solid black;
+  border-radius: 2rem;
+}
+.placeholderText{
+  position: absolute; 
+  top: 0;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  border: 3px solid transparent;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.text{
+  font-size: 1.1rem;
+  padding: 0 0.5rem;
+  background-color: transparent;
+  color: black;
+}
+
+input, .placeholderText{
+  font-size: 1.1rem;
+  padding: 0 1.2rem;
+}
+input:focus{
+  outline: none;
+  border-color: rgb(18, 50, 147);
+}
+input:focus + .placeholderText .text{
+  background-color: white;
+  font-size: 1.1rem;
+  color: black;
+  transform: translate(0, -170%);
+  border-color:rgb(18, 50, 147);
+  color: rgb(18, 50, 147);
+  font-weight: 700;
+}
+.text{
+  transform: translate(0);
+  transition: transform 0.15s ease-out, font-size 0.15s ease-out, background-color 0.2s ease-out, color 0.15s ease-out;
+}
+input:focus + .placeholderText .text, :not(input[value=""]) + .placeholderText .text{
+  background-color: white;
+  font-size: 1.1rem;
+  color: black;
+  transform: translate(0, -170%);
+}
+
+input:focus + .placeholderText .text{
+  border-color: rgb(18, 50, 147);
+  color: rgb(18, 50, 147);
+}
+.dropMenu {
+  width : 300px; 
+  background: white;
+  margin : 40px auto;
+}
+.groupsBtn {
+  padding : 30px;
+  background : #2d2f31; 
+  color : white;
+  font-size : 1.2em;
+  font-variant : small-caps;
+  cursor : pointer;
+  display: block;
+}
+.groupsBtn::after {
+  float: right;
+  right: 10%;
+  content: "+";
+}
+.menuLists  {
+  clear:both;
+  width:100%;
+  height:0px;
+  overflow: hidden;
+  text-align: center;
+  transition: height .4s ease;
+}
+.menuLists .menuItems {padding : 30px;}
+
+.touch {position: absolute; opacity: 0; height: 0px;}    
+
+.touch:checked + .menuLists {height: 300px;} 
+.menuItems a {text-decoration : none; color : #2d2f31;}
