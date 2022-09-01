@@ -1,0 +1,29 @@
+.generalAbout {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  height: 400px;
+}
+
+.box1 {
+  margin-left: 40px;
+  width: 20%;
+}
+
+.box2 {
+  width: 20%;
+}
+
+.box3 {
+  margin-left: 40px;
+  width: 20%;
+}
+
+.box4 {
+  width: 30%;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+}
