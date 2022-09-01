@@ -7,9 +7,9 @@ const initialState = {
 
 export const fetchNote = createAsyncThunk(
   "note/fetch",
-  async (student, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:3000/notes/${student}`);
+      const res = await fetch(`http://localhost:3000/notes`);
       const data = await res.json();
       return data;
     } catch (error) {

@@ -12,8 +12,6 @@ const Mainpage = () => {
   const [form, setForm] = useState(false)
 
   const token = useSelector(state => state.application.token)
-  console.log(token)
-
   const dispatch = useDispatch()
 
   const handleLoginChange = (e) =>{
@@ -45,14 +43,14 @@ const Mainpage = () => {
 
         <motion.p
           className={styles.into_text}
-          transition={{ duration: 3 }}
+          transition={{ duration: 1.5 }}
           initial={{ opacity: 0, y: 100, fontSize: "20px" }}
           animate={{
             opacity: [0, 0.4, 0.8, 1],
             y: 0,
-            scale: [1, 1.5, 1],
-            fontSize: "100px",
-            textShadow: "0 0 25px rgb(26, 26, 216)",
+            scale: [0.4, 1],
+            fontSize: "80px",
+            textShadow: "0 0 2px white",
           }}
         >
           INTOCODE
@@ -61,13 +59,16 @@ const Mainpage = () => {
 
       <section className={styles.second_section}>
         <motion.div
-          transition={{ duration: 3 }}
-          initial={{ borderBottom: "none" }}
+          transition={{ duration: 2 }}
+          initial={{borderBottom: "none" , y:100,
+        opacity:0}}
           animate={{
+            y:0,
+            opacity:1,
             borderBottom: "3px solid #fff",
           }}
         >
-          Почуму стоит выбирать именно нас? Lorem ipsum dolor sit amet
+          Почему стоит выбирать именно нас? Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Cupiditate dolore rem porro eum? Lorem
           ipsum dolor sit amet consectetur adipisicing elit. Iusto placeat
           voluptates repellendus blanditiis error rem ab? Voluptatibus sed quod
@@ -76,13 +77,14 @@ const Mainpage = () => {
           Officia velit sunt assumenda ut ipsa, quae nisi ducimus est
           voluptatibus hic, quisquam vitae, minima aperiam natus. Doloribus odio
           temporibus aut labore!
-          <br />
-          <div>Подробнее</div>
         </motion.div>
         <motion.div
-          transition={{ duration: 3 }}
-          initial={{ borderBottom: "none" }}
+          transition={{ duration: 2 }}
+          initial={{ borderBottom: "none" , y:100,
+        opacity:0}}
           animate={{
+            y:0,
+            opacity:1,
             borderBottom: "3px solid #fff",
           }}
         >
@@ -95,8 +97,6 @@ const Mainpage = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ad
           voluptatibus eveniet omnis nisi, quae iste at iusto ab nesciunt illo
           inventore veniam porro voluptates laborum velit explicabo fuga. Quis.
-          <br />
-          <div>Подробнее</div>
         </motion.div>
       </section>
       <motion.section
@@ -140,10 +140,10 @@ const Mainpage = () => {
           className={styles.register}
           src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png"
         />
-  {form && <motion.form onSubmit={e => handleLogin(e)}
+<motion.form onSubmit={e => handleLogin(e)}
               transition={{duration:1}}
               initial={{opacity:0,  y:50}}
-              animate={{opacity:1, y:0}}>
+              whileInView={{opacity:1, y:0}}>
           <h1>LOGIN</h1>
           <input
           className={styles.input_text}
@@ -175,7 +175,7 @@ const Mainpage = () => {
               </div>
             </div>
           </div>
-        </motion.form> }
+        </motion.form>
         
       </motion.section>
     </>
