@@ -12,7 +12,7 @@ const Footer = () => {
           <h3>INTOCODE</h3>
           <p>
             Ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-            iure, quibusdam, numquam magnam.
+            iure, quibusdam, numquam magnam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis iure ad, ipsam culpa eos vero sequi ea. Earum, quis magni? Necessitatibus alias ullam rerum, rem amet nisi minus illum? Eius!
           </p>
         </div>
         <div className={styles.block2}>

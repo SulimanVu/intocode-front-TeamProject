@@ -50,7 +50,7 @@ const Mainpage = () => {
             y: 0,
             scale: [0.4, 1],
             fontSize: "80px",
-            textShadow: "0 0 2px white",
+            textShadow: "0 0 3px white",
           }}
         >
           INTOCODE

@@ -37,21 +37,18 @@ a {
     right: 0;
     transform: translateX(110%);
     transition: 2s;
-
 }
 .menu_active {
     position: absolute;
     top: 0;
     transform: translateX(0);
     transition: .5s;
-   
+    z-index: 5;
 }
 .blur {
     width: 100vw;
     height: 200vh;
-    /* backdrop-filter: blur(2px); */
     position: absolute;
-    
 }
 .menu_content {
     display: flex;
@@ -83,10 +80,12 @@ a {
     text-align: center;
     color: #fff;
     border-bottom: 1px double #fff;
+    transition: 0.5s;
 }
 .menu_title:hover {
     font-size: 35px;
     letter-spacing: 3px;
+    border-bottom: 3px double #fff;
 }
 .menu_list {
     display: flex;
