@@ -1,14 +1,17 @@
 body{
-    background-color: #fff;
-    height: 100%;
+    background-color: #222;
 }
 button{
     cursor: pointer;
 }
 .into_text{
-    color: blue;
+    color: rgb(18,50,147);
     text-align: center;
     font-weight: 900;
+    width:min-content;
+    height: 200px;
+    display: flex;
+    margin: 10% auto 0;
 }
 .logo{
     position: absolute;
@@ -34,9 +37,7 @@ button{
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-image: linear-gradient(blue,rgb(52, 206, 193));
+    color: #fff;
 }
 .second_section>div>div{
     margin: 20px auto 0;
@@ -56,7 +57,7 @@ button{
 /* fours_section/register */
 .section_registration{
     text-align: center;
-    margin: 100px 0;
+    margin: 30px 0;
 }
 .register{
     width: 100px;
@@ -67,7 +68,7 @@ button{
 /* form */
 form{
     width: 300px;
-    margin: auto;
+    margin: 40px auto 0;
     background-color: #fff;
     text-align: center;
     display: flex;
