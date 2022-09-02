@@ -5,15 +5,15 @@
 }
 .maincards {
     margin-top: 30px;
-    width: 90%;
+    width: 85%;
     font-family: tahoma;
     background-size: cover;
     background-position: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: right;
     flex-wrap: wrap;
     gap: 40px;
-    align-items: center;
+    margin-left: 10px;
 }
 .onecard {
   display: flex;
@@ -111,7 +111,7 @@ input{
   margin-top: 30px;
   height: 3rem;
   width: 40rem;
-  border: 3px solid black;
+  border: 3px solid rgb(18, 50, 147);
   border-radius: 2rem;
 }
 .placeholderText{
@@ -162,7 +162,8 @@ input:focus + .placeholderText .text, :not(input[value=""]) + .placeholderText .
 
 input:focus + .placeholderText .text{
   border-color: rgb(18, 50, 147);
-  color: rgb(18, 50, 147);
+  color: white;
+  background-color: rgb(18, 50, 147);
 }
 li {
   float: left;
@@ -170,14 +171,18 @@ li {
 
 .dropMenu a, .dropbtn {
   display: inline-block;
-  color: white;
+  color: rgb(18, 50, 147);
+  width: 130px;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  border-radius: 15px;
+  margin-top: 15px;
 }
 
 .dropMenu a:hover, .dropMenu:hover .dropbtn {
   background-color: rgb(18, 50, 147);
+  color: white;
 }
 
 .mainDrop {
@@ -192,7 +197,7 @@ li {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 90px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
