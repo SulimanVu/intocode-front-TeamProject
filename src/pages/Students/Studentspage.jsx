@@ -53,6 +53,7 @@ const Studentspage = () => {
                     <Link key={item._id} to={`/students/group/${item._id}`}>{item.nameGroup}</Link>
                 )
             })}
+            <Link to={`/students`}>Все студенты</Link>
           </div>
         </div>
       </div>
