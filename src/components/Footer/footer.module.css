@@ -1,84 +1,51 @@
   .general {
     line-height: 1.5;
-    border-width: 0;
-    border-style: solid;
-    border-top-width: 1px;
     min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #FFF;
+    border-top: 1px dashed blue;
+    color: rgb(18, 50, 147);
   }
   .subGeneral {
     width: 50%;
-    display: flex;
-    justify-content: space-between;
+    margin: auto;
   }
 
-  .block1 h3 {
-    text-align: center;
-  }
-  
-  .block2 {
-    margin-right: 30px;
-  }
-  
-  .block2 h3 {
-    text-align: center;
-    justify-items: flex-start;
-  }
-  
   .ima {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .i {
-    margin-left: 10px;
-  }
-  
   .dno {
     display: flex;
     justify-content: center;
   }
 .general {
-  line-height: 1.5;
-  border-width: 0;
-  border-style: solid;
-  border-top-width: 1px;
-}
-.subGeneral {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.block1 {
-  width: 30%;
-  margin-left: 30px;
-  margin-top: 30px;
-}
-.block1 h3 {
-  text-align: center;
+  line-height: 1;
+  padding: 5px;
 }
 
 .block2 {
-  margin-right: 30px;
-  margin-top: 30px;
+  margin-bottom: 5px;
 }
 .ima {
-  margin-top: 10px;
   background-color: #fff;
   border-radius: 30px;
-  padding-right: 8px;
-  padding-top: 2px;
+  padding: 3px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   box-sizing: border-box;
+}
+
+.ima > a {
+  max-height: 35px;
 }
 .dno {
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 15px;
+}
+.dno > p {
+  font-size: 13px;
+  font-weight: 300;
 }

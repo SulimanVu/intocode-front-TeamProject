@@ -1,5 +1,6 @@
 body{
-    background-color: #222;
+    background-color: #f3f3f5;
+    font-family: 'Roboto', sans-serif;
 }
 button{
     cursor: pointer;
@@ -9,15 +10,9 @@ button{
     text-align: center;
     font-weight: 900;
     width:min-content;
-    height: 200px;
+    height: 150px;
     display: flex;
-    margin: 10% auto 0;
-}
-.logo{
-    position: absolute;
-    top: 1%;
-    left: 1%;
-    border-radius: 5px;
+    margin: 4% auto 0;
 }
 
 /* section_second */
@@ -26,18 +21,18 @@ button{
     justify-content: space-between;
     width: 80%;
     margin: auto;
-    height: 500px;
+    height: 400px;
 }
 .second_section div{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
-    max-height: 300px;
+    max-height: 250px;
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    color: #fff;
+    color: #333;
 }
 .second_section>div>div{
     margin: 20px auto 0;
@@ -45,13 +40,13 @@ button{
     border-radius: 10px;
     line-height: 20px;
     background-color: #222;
-    color: #fff;
+    color: #333;
     cursor: pointer;
 }
 /* third_section/section_about */
 .section_about{
     width: 90%;
-    color: #fff;
+    color: #333;
     margin: 0 auto;
 }
 /* fours_section/register */

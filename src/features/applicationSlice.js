@@ -35,7 +35,7 @@ const applicationSlice = createSlice({
         builder
         .addCase(SignIn.fulfilled, (state, action) => {
             state.error = null;
-            state.token = action.payload.token;
+            state.token = action.payload;
         })
         .addCase(SignIn.rejected, (state, action) => {
             state.error = action.payload;

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
 }
 .maincards {
     margin-top: 30px;
@@ -171,8 +172,6 @@ li {
 
 .dropMenu a, .dropbtn {
   display: inline-block;
-  color: rgb(18, 50, 147);
-  width: 130px;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -182,7 +181,6 @@ li {
 
 .dropMenu a:hover, .dropMenu:hover .dropbtn {
   background-color: rgb(18, 50, 147);
-  color: white;
 }
 
 .mainDrop {

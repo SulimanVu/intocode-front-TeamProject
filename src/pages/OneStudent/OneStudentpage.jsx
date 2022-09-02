@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styles from "./onestudent.module.css";
 import { motion } from "framer-motion";
-import image from "../../images/Suliman.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchStudents } from "../../features/studentSlice";
@@ -41,6 +40,7 @@ const OneStudentpage = () => {
     dispatch(fetchStudents());
     dispatch(fetchNote());
   }, [dispatch]);
+
 
   return (
     <div className={styles.main_block}>
@@ -103,7 +103,7 @@ const OneStudentpage = () => {
             <div className={styles.image}>
               <div className={styles.circle}>
                 <div className={styles.circle2}></div>
-                <img src={image} alt='../../images/Suliman.png'/>
+                <img src={`http://localhost:3000/images/${item.image}`} alt='../../images/Suliman.png'/>
               </div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info1}`}

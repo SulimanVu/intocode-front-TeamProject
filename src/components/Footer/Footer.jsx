@@ -8,24 +8,16 @@ const Footer = () => {
   return (
     <footer className={styles.general}>
       <div className={styles.subGeneral}>
-        <div className={styles.block1}>
-          <h3>INTOCODE</h3>
-          <p>
-            Ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-            iure, quibusdam, numquam magnam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis iure ad, ipsam culpa eos vero sequi ea. Earum, quis magni? Necessitatibus alias ullam rerum, rem amet nisi minus illum? Eius!
-          </p>
-        </div>
         <div className={styles.block2}>
-          <h3>CONTACTS</h3>
           <div className={styles.ima}>
-            <a href="https://github.com/intocode">
-              <img width="67px" src={img} alt="" />
-            </a>
             <a href="https://www.instagram.com/intocode_2.jpeg/">
-              <img width="50px" src={imga} alt="" />
+              <img width="30px" src={imga} alt="" />
+            </a>
+            <a href="https://github.com/intocode">
+              <img width="31px" src={img} alt="" />
             </a>
             <a className={styles.i} href="https://vk.com/intocode">
-              <img width="50px" src={imag} alt="" />
+              <img width="30px" src={imag} alt="" />
             </a>
           </div>
         </div>
