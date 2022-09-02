@@ -3,10 +3,11 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+  padding: 20px;
 }
 .maincards {
     margin-top: 30px;
-    width: 85%;
+    width: 90%;
     font-family: tahoma;
     background-size: cover;
     background-position: center;
@@ -25,10 +26,10 @@
   text-align: center;
   overflow: hidden;
   position: relative;
-  width: 400px;
+  width: 350px;
   border-radius: 10%;
   border: solid rgb(18, 50, 147);
-  height: 220px;
+  height: 250px;
 }
 .onecard:hover .studentImage::before {
     height: 100%;
@@ -174,6 +175,7 @@ li {
   display: inline-block;
   text-align: center;
   padding: 14px 16px;
+  color: rgb(18, 50, 147);
   text-decoration: none;
   border-radius: 15px;
   margin-top: 15px;
@@ -181,6 +183,7 @@ li {
 
 .dropMenu a:hover, .dropMenu:hover .dropbtn {
   background-color: rgb(18, 50, 147);
+  color: white;
 }
 
 .mainDrop {
