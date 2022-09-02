@@ -1,5 +1,5 @@
 body{
-    background-color: #222;
+    background-color: #f3f3f5;
 }
 button{
     cursor: pointer;
@@ -37,7 +37,7 @@ button{
     text-align: center;
     padding: 10px;
     font-weight: 700;
-    color: #fff;
+    color: #333;
 }
 .second_section>div>div{
     margin: 20px auto 0;
@@ -45,13 +45,13 @@ button{
     border-radius: 10px;
     line-height: 20px;
     background-color: #222;
-    color: #fff;
+    color: #333;
     cursor: pointer;
 }
 /* third_section/section_about */
 .section_about{
     width: 90%;
-    color: #fff;
+    color: #333;
     margin: 0 auto;
 }
 /* fours_section/register */
