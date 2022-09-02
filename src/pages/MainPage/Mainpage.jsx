@@ -64,7 +64,7 @@ const Mainpage = () => {
           animate={{
             y: 0,
             opacity: 1,
-            borderBottom: "3px solid #fff",
+            borderBottom: "2px solid blue",
           }}
         >
           Почему стоит выбирать именно нас? Lorem ipsum dolor sit amet
@@ -83,7 +83,7 @@ const Mainpage = () => {
           animate={{
             y: 0,
             opacity: 1,
-            borderBottom: "3px solid #fff",
+            borderBottom: "2px solid blue",
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
@@ -160,10 +160,7 @@ const Mainpage = () => {
             onChange={handlePasswordChange}
             placeholder="password"
           />
-
-          <Link to={"/admin"}>
             <button type="submit">LOGIN</button>
-          </Link>
           <div>
             <span>Or login with</span>
             <div className={styles.messenger}>
