@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import styles from "./mainpage.module.css";
 import { motion } from "framer-motion";
-import logo from "../../images/intocode_3.png";
 import { useDispatch } from "react-redux";
 import { SignIn } from "../../features/applicationSlice";
-import { Link } from "react-router-dom";
+
 
 const Mainpage = () => {
   const [login, setLogin] = useState("");
@@ -32,23 +31,14 @@ const Mainpage = () => {
   return (
     <>
       <section className={styles.first_section}>
-        <motion.img
-          width="60px"
-          src={logo}
-          className={styles.logo}
-          transition={{ duration: 3 }}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-        />
-
         <motion.p
           className={styles.into_text}
           transition={{ duration: 1.5 }}
-          initial={{ opacity: 0, y: 100, fontSize: "20px" }}
+          initial={{ opacity: 0, y: 20, fontSize: "20px" }}
           animate={{
-            opacity: [0, 0.4, 0.8, 1],
+            opacity: [0, 0.5, 1],
             y: 0,
-            scale: [0.4, 1],
+            scale: [0.6, 1],
             fontSize: "80px",
             textShadow: "0 0 3px white",
           }}
@@ -59,12 +49,13 @@ const Mainpage = () => {
 
       <section className={styles.second_section}>
         <motion.div
-          transition={{ duration: 2 }}
-          initial={{ borderBottom: "none", y: 100, opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          initial={{ borderBottom: "none", y: 50, opacity: 0 }}
           animate={{
             y: 0,
             opacity: 1,
-            borderBottom: "2px solid blue",
+            borderBottom: "3px solid blue",
+            borderRadius: '1px'
           }}
         >
           Почему стоит выбирать именно нас? Lorem ipsum dolor sit amet
@@ -78,12 +69,13 @@ const Mainpage = () => {
           temporibus aut labore!
         </motion.div>
         <motion.div
-          transition={{ duration: 2 }}
-          initial={{ borderBottom: "none", y: 100, opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          initial={{ borderBottom: "none", y: 50, opacity: 0 }}
           animate={{
             y: 0,
             opacity: 1,
-            borderBottom: "2px solid blue",
+            borderBottom: "3px solid blue",
+            borderRadius: '1px'
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
@@ -99,8 +91,8 @@ const Mainpage = () => {
       </section>
       <motion.section
         className={styles.section_about}
-        transition={{ duration: 2 }}
-        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{
           opacity: 1,
           y: 0,
@@ -137,7 +129,7 @@ const Mainpage = () => {
           onClick={handleForm}
           alt="#"
           className={styles.register}
-          src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png"
+          src="https://t4.ftcdn.net/jpg/04/75/00/99/360_F_475009987_zwsk4c77x3cTpcI3W1C1LU4pOSyPKaqi.jpg"
         />
         <motion.form
           onSubmit={(e) => handleLogin(e)}

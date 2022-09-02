@@ -3,29 +3,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.logo{
+    width: 60px;
+}
 ul {
     list-style: none;
 }
 a {
     text-decoration: none;
 }
+.burger_btn_container {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .burger_btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 20px;
-    margin-right: 30px;
-    font-size: 2.5em;
+    font-size: 3em;
     font-weight: 700;
     float: right;
     color: #2046c4;
     cursor: pointer;
-    transition: all 0.5s;
+    transition: all 3s;
     -webkit-transition: all 0.25s;
 }
 .burger_btn:hover {
-    transform: rotate(90deg);
-    color: #fff;
+    transform: rotate(-90deg);
 }  
 
 /* ======================================================================================MENU======================================================================================== */
@@ -36,13 +41,13 @@ a {
     height: 100vh;
     right: 0;
     transform: translateX(110%);
-    transition: 2s;
+    transition: 3s;
 }
 .menu_active {
     position: absolute;
     top: 0;
     transform: translateX(0);
-    transition: .5s;
+    transition: 2s;
     z-index: 5;
 }
 .blur {
@@ -59,7 +64,7 @@ a {
     width: 20%;
     height: 100%;
     background-color: rgb(50, 50, 204);
-    border-radius: 30px;
+    border-radius: 5px;
     transition: all .2s;
 }
 
@@ -103,7 +108,7 @@ a {
 }
 .menu_link {
     text-align: center;
-    color: #42AAFF;
+    color: #fff;
     font-size: 20px;
     font-weight: bold;
     transition: 0.3s;
@@ -112,9 +117,9 @@ a {
 .exit {
     margin-top: 8px;
     margin-right: 230px;
+    color: #fff;
     font-size: 2em;
     font-weight: 700;
-    color: #42AAFF;
     cursor: pointer;
 }
 .exit:hover {
