@@ -1,4 +1,4 @@
-import { Link, Route, Routes, Navigate} from 'react-router-dom'
+import { Route, Routes} from 'react-router-dom'
 import Sidebar from './Sidebar/Sidebar'
 import Footer from './Footer/Footer'
 import Mainpage from '../pages/MainPage/Mainpage'
@@ -6,7 +6,6 @@ import Adminpage from '../pages/Admin/Adminpage'
 import Studentspage from '../pages/Students/Studentspage'
 import OneStudentpage from '../pages/OneStudent/OneStudentpage'
 import Aboutpage from '../pages/About/Aboutpage'
-import { useSelector } from "react-redux";
 
 
 function App() {

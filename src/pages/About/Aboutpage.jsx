@@ -21,11 +21,17 @@ const Aboutpage = () => {
           "Команда интукод учит и помогает в поиске работы с 2018 года. Наши
           студенты во время учебы сталкиваются с реальными условиями трудового
           процесса программсита и в итоге, когда наступает первый рабочий день,
-          студенты чувсвуют себя будто рыба, что плывет по течению." {`© Student`}
+          студенты чувсвуют себя будто рыба, что плывет по течению."{" "}
+          {`© Student`}
         </p>
       </div>
       <div className={styles.map}>
-      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8136f98a36d94770510de23c5abbac4ca5f0a83d6a0eef85146d98057d9895bd&amp;source=constructor" width="600" height="546" frameborder="0"></iframe>
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A8136f98a36d94770510de23c5abbac4ca5f0a83d6a0eef85146d98057d9895bd&amp;source=constructor"
+          width="600"
+          height="546"
+          frameborder="0"
+        ></iframe>
       </div>
     </div>
   );
