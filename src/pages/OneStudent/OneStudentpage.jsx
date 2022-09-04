@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchStudents } from "../../features/studentSlice";
-import { fetchNote, addNote } from "../../features/noteSlice";
+import { fetchNote, addNote, removeNote } from "../../features/noteSlice";
 import { useState } from "react";
 
 const OneStudentpage = () => {
@@ -30,6 +30,10 @@ const OneStudentpage = () => {
   }
   const handleAddNote = (student, notes) => {
     dispatch(addNote({student, notes}))
+  }
+  const handleDeleteNote = (student) => {
+    console.log(student);
+    dispatch(removeNote(student))
   }
   const divVariants = {
     hiden: {
@@ -100,11 +104,14 @@ const OneStudentpage = () => {
                     return (
                       <motion.div
                       key={index}
+                      className={styles.notes_text}
                         transition={{ duration: 3 }}
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
                       >
-                        {item.notes}
+                        <span>{item.notes}</span>
+                        {token ? <button onClick={()=> handleDeleteNote(item.student._id)}
+                        className={styles.deleteNote}>Удалить</button>: null}
                       </motion.div>
                     );
                   })

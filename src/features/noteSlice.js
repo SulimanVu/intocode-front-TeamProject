@@ -46,8 +46,8 @@ export const removeNote = createAsyncThunk(
       const res = await fetch(`http://localhost:3000/note/${student}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
           "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
         },
       });
       const data = await res.json();
@@ -70,7 +70,7 @@ const noteSlice = createSlice({
     ////////////////Вывод////////////////////
       .addCase(fetchNote.fulfilled, (state, action) => {
         state.loader = false;
-        state.notes = action.payload.reverse();
+        state.notes = action.payload;
       })
       .addCase(fetchNote.rejected, (state, action) => {
         state.notes = action.payload;
@@ -83,7 +83,7 @@ const noteSlice = createSlice({
       .addCase(addNote.fulfilled, (state, action) => {
         state.loader = false;
         console.log(action.payload);
-        state.notes.unshift(action.payload);
+        state.notes.push(action.payload);
       })
       .addCase(addNote.rejected, (state, action) => {
         state.loader = false;
@@ -94,8 +94,11 @@ const noteSlice = createSlice({
       })
       ////////////Удаление/////////////////////
       .addCase(removeNote.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.loader = false;
-        state.notes = state.notes.filter((item) => item._id !== action.payload);
+        state.notes = state.notes.filter((item) =>{
+        console.log(item.student._id, action.payload.student)
+       return item.student._id !== action.payload.student});
       })
       .addCase(removeNote.rejected, (state, action) => {
         state.loader = false;
