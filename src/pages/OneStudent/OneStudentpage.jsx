@@ -4,14 +4,16 @@ import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchStudents } from "../../features/studentSlice";
-import { fetchNote } from "../../features/noteSlice";
+import { fetchNote, addNote } from "../../features/noteSlice";
+import { useState } from "react";
 
 const OneStudentpage = () => {
-  const dispatch = useDispatch();
+  const [text, setText] = useState('')
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.application.token)
 
   const student = useSelector((state) => state.student.students);
-
   const filteredStudents = student.filter((i) => {
     if (id === i._id) {
       return true;
@@ -20,11 +22,15 @@ const OneStudentpage = () => {
   });
 
   const notes = useSelector((state) =>
-    state.note.notes.filter((note) => note.student._id === id)
-  );
+  state.note.notes.filter((note) => note.student._id === id)
+);
 
-  console.log(notes);
-
+  const handleChange = (e) => {
+    setText(e.target.value)
+  }
+  const handleAddNote = (student, notes) => {
+    dispatch(addNote({student, notes}))
+  }
   const divVariants = {
     hiden: {
       opacity: 0,
@@ -41,12 +47,13 @@ const OneStudentpage = () => {
     dispatch(fetchNote());
   }, [dispatch]);
 
-
   return (
     <div className={styles.main_block}>
-      {filteredStudents.map((item) => {
+      {filteredStudents.map((item, index) => {
         return (
-          <section className={styles.main}>
+          <section
+           key={index}
+           className={styles.main}>
             <div className={styles.text}>
               <motion.h5
                 transition={{ duration: 5 }}
@@ -82,28 +89,49 @@ const OneStudentpage = () => {
               <div className={styles.note}>
                 <motion.p
                   transition={{ duration: 2 }}
-                  initial={{opacity:0, x:100}}
-                  animate={{opacity:1, x:0}}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
                 >
                   Заметки:
                 </motion.p>
-                {notes.map((item) => {
-                  return (
-                    <motion.div
-                      transition={{ duration: 3 }}
-                      initial={{ opacity: 0, y: 100 }}
-                      animate={{ opacity: 1, y: 0 }}
-                    >
-                      {item.notes}
-                    </motion.div>
-                  );
-                })}
+                <div className={styles.comments_block}>
+                {notes ? (
+                  notes.map((item, index) => {
+                    return (
+                      <motion.div
+                      key={index}
+                        transition={{ duration: 3 }}
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        {item.notes}
+                      </motion.div>
+                    );
+                  })
+                ) : (
+                  <motion.p
+                    className={styles.not_note}
+                    transition={{ duration: 3 }}
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    Нет заметок
+                  </motion.p>
+                )}
+                </div>
+                {token ? <div className={styles.notes}>
+                  <input type='text' value={text} onChange={(e) => handleChange(e)} />
+                  <button onClick={()=>handleAddNote(item._id, text)}>Добавить</button>
+                </div> : null}
               </div>
             </div>
             <div className={styles.image}>
               <div className={styles.circle}>
                 <div className={styles.circle2}></div>
-                <img src={`http://localhost:3000/images/${item.image}`} alt='../../images/Suliman.png'/>
+                <img
+                  src={`http://localhost:3000/images/${item.image}`}
+                  alt="../../images/Suliman.png"
+                />
               </div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info1}`}
@@ -111,7 +139,7 @@ const OneStudentpage = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
               >
-                REACT
+                TS
               </motion.div>
               <motion.div
                 className={`${styles.circle_info} ${styles.circle_info2}`}
