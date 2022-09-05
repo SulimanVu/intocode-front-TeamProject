@@ -74,7 +74,7 @@ const OneStudentpage = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
               <span>{item.group.nameGroup}</span>
-              <span onClick={() => handleDeleteStudent()}>Удалить студента</span>
+              {token ? <span onClick={() => handleDeleteStudent()}>Удалить студента</span> : null}
               </motion.div>
               <motion.h1
                 variants={divVariants}
