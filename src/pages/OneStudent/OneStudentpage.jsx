@@ -2,15 +2,18 @@ import React, { useEffect } from "react";
 import styles from "./onestudent.module.css";
 import { motion } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchStudents } from "../../features/studentSlice";
 import { fetchNote, addNote, removeNote } from "../../features/noteSlice";
+import { removeStudent } from "../../features/studentSlice";
 import { useState } from "react";
 
 const OneStudentpage = () => {
-  const [text, setText] = useState('')
+  const [text, setText] = useState('');
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const token = useSelector((state) => state.application.token)
 
   const student = useSelector((state) => state.student.students);
@@ -36,6 +39,10 @@ const OneStudentpage = () => {
     console.log(student);
     dispatch(removeNote( notes))
   }
+  const handleDeleteStudent = () => {
+    dispatch(removeStudent(id))
+    navigate("/students")
+  }
   const divVariants = {
     hiden: {
       opacity: 0,
@@ -60,13 +67,15 @@ const OneStudentpage = () => {
            key={index}
            className={styles.main}>
             <div className={styles.text}>
-              <motion.h5
-                transition={{ duration: 5 }}
+              <motion.div
+              className={styles.h5}
+                transition={{ duration: 3 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                {item.group.nameGroup}
-              </motion.h5>
+              <span>{item.group.nameGroup}</span>
+              <span onClick={() => handleDeleteStudent()}>Удалить студента</span>
+              </motion.div>
               <motion.h1
                 variants={divVariants}
                 transition={{ duration: 3 }}
