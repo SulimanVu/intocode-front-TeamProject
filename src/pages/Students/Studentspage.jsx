@@ -8,17 +8,15 @@ import { useState } from "react";
 import { fetchGroups } from "../../features/groupSlice";
 
 const Studentspage = () => {
-
   const dispatch = useDispatch();
 
   const students = useSelector((state) => state.student.students);
-  const allGroups = useSelector((state) => state.group.groups)
+  const allGroups = useSelector((state) => state.group.groups);
 
   useEffect(() => {
     dispatch(fetchGroups());
     dispatch(fetchStudents());
   }, [dispatch]);
-
 
   const { id } = useParams();
   const [search, setSearch] = useState("");
@@ -34,11 +32,9 @@ const Studentspage = () => {
     return id === item.group._id;
   });
 
-
   const filtered = filterStudents.filter((item) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   });
-
 
   return (
     <div className={styles.cardsBody}>
@@ -49,9 +45,11 @@ const Studentspage = () => {
           </a>
           <div className={styles.dropContent}>
             {allGroups.map((item) => {
-                return (
-                    <Link key={item._id} to={`/students/group/${item._id}`}>{item.nameGroup}</Link>
-                )
+              return (
+                <Link key={item._id} to={`/students/group/${item._id}`}>
+                  {item.nameGroup}
+                </Link>
+              );
             })}
             <Link to={`/students`}>Все студенты</Link>
           </div>
@@ -67,21 +65,21 @@ const Studentspage = () => {
             value={search}
             aria-labelledby={styles.placeholderFName}
           />
-          <label
-            className={styles.placeholderText}
-            id="placeholder-fname"
-          >
+          <label className={styles.placeholderText} id="placeholder-fname">
             <div className={styles.text}>Имя студента</div>
           </label>
         </div>
       </div>
-      
+
       <div className={styles.maincards}>
         {filtered.map((item) => {
           return (
-            <div  key={item._id} className={styles.onecard}>
+            <div key={item._id} className={styles.onecard}>
               <div className={styles.studentImage}>
-                <img alt="#" src={`http://localhost:3000/images/${item.image}`} />
+                <img
+                  alt="#"
+                  src={`http://localhost:3000/images/${item.image}`}
+                />
               </div>
               <div className={styles.flex}>
                 <div className={styles.studentName}>

@@ -4,12 +4,10 @@ import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { SignIn } from "../../features/applicationSlice";
 
-
 const Mainpage = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [form, setForm] = useState(false);
- 
 
   const dispatch = useDispatch();
 
@@ -55,7 +53,7 @@ const Mainpage = () => {
             y: 0,
             opacity: 1,
             borderBottom: "3px solid blue",
-            borderRadius: '1px'
+            borderRadius: "1px",
           }}
         >
           Почему стоит выбирать именно нас? Lorem ipsum dolor sit amet
@@ -75,7 +73,7 @@ const Mainpage = () => {
             y: 0,
             opacity: 1,
             borderBottom: "3px solid blue",
-            borderRadius: '1px'
+            borderRadius: "1px",
           }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
@@ -124,7 +122,7 @@ const Mainpage = () => {
         transition={{ duration: 2 }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-      > 
+      >
         <img
           onClick={handleForm}
           alt="#"
@@ -152,7 +150,7 @@ const Mainpage = () => {
             onChange={handlePasswordChange}
             placeholder="password"
           />
-            <button type="submit">LOGIN</button>
+          <button type="submit">LOGIN</button>
           <div>
             <span>Or login with</span>
             <div className={styles.messenger}>
@@ -181,10 +179,3 @@ const Mainpage = () => {
 };
 
 export default Mainpage;
-
-// TODO Если есть токен то добавить кнопку log out и очистить localStorage
-
-// const handleLogOut = () => {
-//   localStorage.clear();
-//   window.location.reload();
-// }

@@ -47,14 +47,14 @@ export const removeStudent = createAsyncThunk(
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
           "Content-Type": "application/json",
         },
-      })
+      });
       const data = await res.json();
       if (data.error) {
         return thunkAPI.rejectWithValue(data.error);
       }
-      return id
+      return id;
     } catch (error) {
-        return thunkAPI.rejectWithValue(error);       
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -70,11 +70,12 @@ const studentsSlice = createSlice({
       })
       .addCase(addStudent.fulfilled, (state, action) => {
         state.students.push(action.payload);
-
       })
       .addCase(removeStudent.fulfilled, (state, action) => {
-        state.students = state.students.filter((student) => student._id !== action.payload);
-      })
+        state.students = state.students.filter(
+          (student) => student._id !== action.payload
+        );
+      });
   },
 });
 

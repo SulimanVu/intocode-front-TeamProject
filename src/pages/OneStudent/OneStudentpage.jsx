@@ -9,12 +9,12 @@ import { removeStudent } from "../../features/studentSlice";
 import { useState } from "react";
 
 const OneStudentpage = () => {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const token = useSelector((state) => state.application.token)
+  const token = useSelector((state) => state.application.token);
 
   const student = useSelector((state) => state.student.students);
   const filteredStudents = student.filter((i) => {
@@ -25,24 +25,24 @@ const OneStudentpage = () => {
   });
 
   const notes = useSelector((state) =>
-  state.note.notes.filter((item) => item.student._id === id)
-);
+    state.note.notes.filter((item) => item.student._id === id)
+  );
 
   const handleChange = (e) => {
-    setText(e.target.value)
-  }
+    setText(e.target.value);
+  };
   const handleAddNote = (student, notes) => {
-    setText('')
-    dispatch(addNote({student, notes}))
-  }
-  const handleDeleteNote = ( notes) => {
+    setText("");
+    dispatch(addNote({ student, notes }));
+  };
+  const handleDeleteNote = (notes) => {
     console.log(student);
-    dispatch(removeNote( notes))
-  }
+    dispatch(removeNote(notes));
+  };
   const handleDeleteStudent = () => {
-    dispatch(removeStudent(id))
-    navigate("/students")
-  }
+    dispatch(removeStudent(id));
+    navigate("/students");
+  };
   const divVariants = {
     hiden: {
       opacity: 0,
@@ -63,18 +63,20 @@ const OneStudentpage = () => {
     <div className={styles.main_block}>
       {filteredStudents.map((item, index) => {
         return (
-          <section
-           key={index}
-           className={styles.main}>
+          <section key={index} className={styles.main}>
             <div className={styles.text}>
               <motion.div
-              className={styles.h5}
+                className={styles.h5}
                 transition={{ duration: 3 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-              <span>{item.group.nameGroup}</span>
-              {token ? <span onClick={() => handleDeleteStudent()}>Удалить студента</span> : null}
+                <span>{item.group.nameGroup}</span>
+                {token ? (
+                  <span onClick={() => handleDeleteStudent()}>
+                    Удалить студента
+                  </span>
+                ) : null}
               </motion.div>
               <motion.h1
                 variants={divVariants}
@@ -109,37 +111,51 @@ const OneStudentpage = () => {
                   Заметки:
                 </motion.p>
                 <div className={styles.comments_block}>
-                {notes ? (
-                  notes.map((item, index) => {
-                    return (
-                      <motion.div
-                      key={index}
-                      className={styles.notes_text}
-                        transition={{ duration: 1 }}
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                      >
-                        <span>{item.notes}</span>
-                        {token ? <button onClick={()=> handleDeleteNote(item._id)}
-                        className={styles.deleteNote}>Удалить</button>: null}
-                      </motion.div>
-                    );
-                  })
-                ) : (
-                  <motion.p
-                    className={styles.not_note}
-                    transition={{ duration: 3 }}
-                    initial={{ opacity: 0, y: 100 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
-                    Нет заметок
-                  </motion.p>
-                )}
+                  {notes ? (
+                    notes.map((item, index) => {
+                      return (
+                        <motion.div
+                          key={index}
+                          className={styles.notes_text}
+                          transition={{ duration: 1 }}
+                          initial={{ opacity: 0, y: 100 }}
+                          animate={{ opacity: 1, y: 0 }}
+                        >
+                          <span>{item.notes}</span>
+                          {token ? (
+                            <button
+                              onClick={() => handleDeleteNote(item._id)}
+                              className={styles.deleteNote}
+                            >
+                              Удалить
+                            </button>
+                          ) : null}
+                        </motion.div>
+                      );
+                    })
+                  ) : (
+                    <motion.p
+                      className={styles.not_note}
+                      transition={{ duration: 3 }}
+                      initial={{ opacity: 0, y: 100 }}
+                      animate={{ opacity: 1, y: 0 }}
+                    >
+                      Нет заметок
+                    </motion.p>
+                  )}
                 </div>
-                {token ? <div className={styles.notes}>
-                  <input type='text' value={text} onChange={(e) => handleChange(e)} />
-                  <button onClick={()=>handleAddNote(item._id, text)}>Добавить</button>
-                </div> : null}
+                {token ? (
+                  <div className={styles.notes}>
+                    <input
+                      type="text"
+                      value={text}
+                      onChange={(e) => handleChange(e)}
+                    />
+                    <button onClick={() => handleAddNote(item._id, text)}>
+                      Добавить
+                    </button>
+                  </div>
+                ) : null}
               </div>
             </div>
             <div className={styles.image}>

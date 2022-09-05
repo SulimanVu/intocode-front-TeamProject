@@ -5,18 +5,15 @@ const initialState = {
   loader: false,
 };
 
-export const fetchNote = createAsyncThunk(
-  "note/fetch",
-  async (_, thunkAPI) => {
-    try {
-      const res = await fetch(`http://localhost:3000/notes`);
-      const data = await res.json();
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error);
-    }
+export const fetchNote = createAsyncThunk("note/fetch", async (_, thunkAPI) => {
+  try {
+    const res = await fetch(`http://localhost:3000/notes`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
   }
-);
+});
 
 export const addNote = createAsyncThunk(
   "note/add",
@@ -28,11 +25,11 @@ export const addNote = createAsyncThunk(
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({student, notes}),
+        body: JSON.stringify({ student, notes }),
       });
-      
+
       const data = await res.json();
-      return data
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -48,7 +45,7 @@ export const removeNote = createAsyncThunk(
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
-        }
+        },
       });
       const data = await res.json();
       if (data.error) {
@@ -82,18 +79,18 @@ const noteSlice = createSlice({
         state.loader = true;
       })
       .addCase(addNote.fulfilled, (state, action) => {
-        state.notes.push(action.payload)
-        state.loader = false
+        state.notes.push(action.payload);
+        state.loader = false;
       })
       .addCase(addNote.rejected, (state, action) => {
         state.loader = false;
       })
-     
 
       .addCase(removeNote.fulfilled, (state, action) => {
         state.loader = false;
-        state.notes = state.notes.filter((item) =>{
-       return item._id !== action.payload._id});
+        state.notes = state.notes.filter((item) => {
+          return item._id !== action.payload._id;
+        });
       })
       .addCase(removeNote.rejected, (state, action) => {
         state.loader = false;

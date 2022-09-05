@@ -12,14 +12,14 @@ const Sidebar = () => {
   return (
     <div className={style.burger_btn_container}>
       <section>
-        <img src={logo} className={style.logo} alt='123' />
+        <img src={logo} className={style.logo} alt="123" />
       </section>
-        <div className={style.burger_btn} onClick={() => handleMenu()}>
-          {" "}
-          ☰
-        </div>
-        <Menu active={menuActive} setActive={setMenuActive} />
+      <div className={style.burger_btn} onClick={() => handleMenu()}>
+        {" "}
+        ☰
       </div>
+      <Menu active={menuActive} setActive={setMenuActive} />
+    </div>
   );
 };
 
