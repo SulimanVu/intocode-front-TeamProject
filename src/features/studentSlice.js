@@ -70,6 +70,7 @@ const studentsSlice = createSlice({
       })
       .addCase(addStudent.fulfilled, (state, action) => {
         state.students.push(action.payload);
+
       })
       .addCase(removeStudent.fulfilled, (state, action) => {
         state.students = state.students.filter((student) => student._id !== action.payload);

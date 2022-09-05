@@ -22,11 +22,11 @@ export const addNote = createAsyncThunk(
   "note/add",
   async ({ student, notes }, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:3000/note`, {
+      const res = await fetch("http://localhost:3000/note", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({student, notes}),
       });
@@ -41,14 +41,14 @@ export const addNote = createAsyncThunk(
 
 export const removeNote = createAsyncThunk(
   "note/remove",
-  async (student, thunkAPI) => {
+  async (notes, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:3000/note/${student}`, {
+      const res = await fetch(`http://localhost:3000/note/${notes}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
-        },
+        }
       });
       const data = await res.json();
       if (data.error) {
@@ -62,15 +62,14 @@ export const removeNote = createAsyncThunk(
 );
 
 const noteSlice = createSlice({
-  name: "application",
+  name: "note",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-    ////////////////Вывод////////////////////
       .addCase(fetchNote.fulfilled, (state, action) => {
         state.loader = false;
-        state.notes = action.payload;
+        state.notes = action.payload.reverse();
       })
       .addCase(fetchNote.rejected, (state, action) => {
         state.notes = action.payload;
@@ -79,26 +78,22 @@ const noteSlice = createSlice({
       .addCase(fetchNote.pending, (state, action) => {
         state.loader = true;
       })
-      /////////////Добавление///////////////////
+      .addCase(addNote.pending, (state, action) => {
+        state.loader = true;
+      })
       .addCase(addNote.fulfilled, (state, action) => {
-        state.loader = false;
-        console.log(action.payload);
-        state.notes.push(action.payload);
+        state.notes.push(action.payload)
+        state.loader = false
       })
       .addCase(addNote.rejected, (state, action) => {
         state.loader = false;
       })
-      .addCase(addNote.pending, (state, action) => {
-        state.loader = true;
-        state.notes = action.payload
-      })
-      ////////////Удаление/////////////////////
+     
+
       .addCase(removeNote.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.loader = false;
         state.notes = state.notes.filter((item) =>{
-        console.log(item.student._id, action.payload.student)
-       return item.student._id !== action.payload.student});
+       return item._id !== action.payload._id});
       })
       .addCase(removeNote.rejected, (state, action) => {
         state.loader = false;

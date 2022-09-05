@@ -22,18 +22,19 @@ const OneStudentpage = () => {
   });
 
   const notes = useSelector((state) =>
-  state.note.notes.filter((note) => note.student._id === id)
+  state.note.notes.filter((item) => item.student._id === id)
 );
 
   const handleChange = (e) => {
     setText(e.target.value)
   }
   const handleAddNote = (student, notes) => {
+    setText('')
     dispatch(addNote({student, notes}))
   }
-  const handleDeleteNote = (student) => {
+  const handleDeleteNote = ( notes) => {
     console.log(student);
-    dispatch(removeNote(student))
+    dispatch(removeNote( notes))
   }
   const divVariants = {
     hiden: {
@@ -105,12 +106,12 @@ const OneStudentpage = () => {
                       <motion.div
                       key={index}
                       className={styles.notes_text}
-                        transition={{ duration: 3 }}
+                        transition={{ duration: 1 }}
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0 }}
                       >
                         <span>{item.notes}</span>
-                        {token ? <button onClick={()=> handleDeleteNote(item.student._id)}
+                        {token ? <button onClick={()=> handleDeleteNote(item._id)}
                         className={styles.deleteNote}>Удалить</button>: null}
                       </motion.div>
                     );
