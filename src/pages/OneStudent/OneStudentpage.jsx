@@ -29,6 +29,7 @@ const OneStudentpage = () => {
     setText(e.target.value)
   }
   const handleAddNote = (student, notes) => {
+    setText('')
     dispatch(addNote({student, notes}))
   }
   const handleDeleteNote = ( notes) => {
